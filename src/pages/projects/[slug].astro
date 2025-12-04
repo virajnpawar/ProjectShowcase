@@ -6,9 +6,15 @@ import { Badge } from '@/components/ui/badge'; // Need to create Badge
 import { Calendar, Eye, Github, Globe } from 'lucide-react';
 
 export async function getStaticPaths() {
-    const projects = await pb.collection('projects').getFullList({
-        filter: 'status = "published"',
-    });
+    let projects: any[] = [];
+    try {
+        projects = await pb.collection('projects').getFullList({
+            filter: 'status = "published"',
+        });
+    } catch (e) {
+        console.warn("Could not fetch projects for static paths (likely build environment without DB access). Skipping project pages generation.", e);
+        return [];
+    }
     
     return projects.map((project) => ({
         params: { slug: project.slug },
