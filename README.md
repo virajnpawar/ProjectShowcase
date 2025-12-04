@@ -54,7 +54,7 @@ project-showcase/
 
 1. **Clone the repository:**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/virajnpawar/ProjectShowcase.git
    cd project-showcase
    ```
 
@@ -91,7 +91,3 @@ project-showcase/
 | `npm run build` | Build your production site to `./dist/` |
 | `npm run preview` | Preview your build locally |
 | `npm run check` | Run Astro check for type errors |
-
-## � License
-
-[MIT](LICENSE)
