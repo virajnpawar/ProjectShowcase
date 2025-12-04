@@ -1,0 +1,8 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import DashboardComponent from '../../components/admin/Dashboard';
+---
+
+<AdminLayout title="Dashboard">
+    <DashboardComponent client:only="react" />
+</AdminLayout>

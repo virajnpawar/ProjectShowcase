@@ -1,0 +1,121 @@
+---
+import PublicLayout from '../../layouts/PublicLayout.astro';
+import { pb } from '../../lib/pocketbase';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge'; // Need to create Badge
+import { Calendar, Eye, Github, Globe } from 'lucide-react';
+
+export async function getStaticPaths() {
+    const projects = await pb.collection('projects').getFullList({
+        filter: 'status = "published"',
+    });
+    
+    return projects.map((project) => ({
+        params: { slug: project.slug },
+        props: { project },
+    }));
+}
+
+const { project } = Astro.props;
+
+// Fetch metadata if needed, or expand in getStaticPaths
+// For now assuming basic fields are in project
+// Content blocks need rendering.
+---
+
+<PublicLayout title={project.title} description={project.excerpt}>
+    <article class="container max-w-4xl py-6 lg:py-10">
+        <div class="space-y-4">
+            <h1 class="inline-block font-heading text-4xl lg:text-5xl">{project.title}</h1>
+            {project.excerpt && (
+                <p class="text-xl text-muted-foreground">{project.excerpt}</p>
+            )}
+            <div class="flex items-center space-x-4 text-sm text-muted-foreground">
+                <div class="flex items-center">
+                    <Calendar className="mr-1 h-4 w-4" />
+                    {new Date(project.created).toLocaleDateString()}
+                </div>
+                {project.view_count > 0 && (
+                    <div class="flex items-center">
+                        <Eye className="mr-1 h-4 w-4" />
+                        {project.view_count} views
+                    </div>
+                )}
+            </div>
+        </div>
+        
+        {project.featured_image && (
+            <div class="my-8 overflow-hidden rounded-lg border bg-muted transition-colors">
+                <img 
+                    src={pb.files.getUrl(project, project.featured_image)} 
+                    alt={project.title}
+                    class="h-full w-full object-cover"
+                />
+            </div>
+        )}
+
+        <div class="grid gap-10 sm:grid-cols-[1fr_300px]">
+            <div class="md:py-4">
+                {/* Content Blocks Rendering */}
+                <div class="prose dark:prose-invert max-w-none">
+                    {project.content_blocks && Array.isArray(project.content_blocks) ? (
+                        project.content_blocks.map((block: any) => {
+                            if (block.type === 'paragraph') return <div set:html={block.content.html} />;
+                            if (block.type === 'title') {
+                                const Tag = block.content.level || 'h2';
+                                return <Tag class="scroll-m-20 text-2xl font-semibold tracking-tight">{block.content.text}</Tag>;
+                            }
+                            if (block.type === 'image') {
+                                return (
+                                    <figure>
+                                        <img src={block.content.url} alt={block.content.alt} class="rounded-md" />
+                                        {block.content.caption && <figcaption>{block.content.caption}</figcaption>}
+                                    </figure>
+                                );
+                            }
+                            if (block.type === 'video') {
+                                let embedUrl = block.content.url;
+                                if (block.content.provider === 'youtube' || block.content.url.includes('youtube') || block.content.url.includes('youtu.be')) {
+                                    const videoId = block.content.url.split('v=')[1]?.split('&')[0] || block.content.url.split('/').pop();
+                                    embedUrl = `https://www.youtube.com/embed/${videoId}`;
+                                } else if (block.content.provider === 'vimeo' || block.content.url.includes('vimeo')) {
+                                    const videoId = block.content.url.split('/').pop();
+                                    embedUrl = `https://player.vimeo.com/video/${videoId}`;
+                                }
+                                return (
+                                    <div class="aspect-video w-full rounded-md border bg-muted overflow-hidden my-6">
+                                        <iframe src={embedUrl} class="w-full h-full" allowfullscreen></iframe>
+                                    </div>
+                                );
+                            }
+                            if (block.type === 'embed') {
+                                return <div set:html={block.content.code} class="my-6" />;
+                            }
+                            // Add other block types
+                            return null;
+                        })
+                    ) : (
+                        <p>No content.</p>
+                    )}
+                </div>
+            </div>
+            
+            <aside class="hidden sm:block">
+                <div class="sticky top-24 space-y-4">
+                    {/* Metadata sidebar */}
+                    <div class="space-y-2">
+                        <h3 class="font-medium">Links</h3>
+                        <div class="flex flex-col gap-2">
+                            <Button variant="outline" className="w-full justify-start" disabled>
+                                <Globe className="mr-2 h-4 w-4" /> Live Demo (N/A)
+                            </Button>
+                            <Button variant="outline" className="w-full justify-start" disabled>
+                                <Github className="mr-2 h-4 w-4" /> GitHub (N/A)
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </article>
+</PublicLayout>

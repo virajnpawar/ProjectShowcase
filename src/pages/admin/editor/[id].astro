@@ -1,0 +1,13 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+import ProjectEditor from '../../../components/admin/ProjectEditor';
+
+export const prerender = false;
+
+
+const { id } = Astro.params;
+---
+
+<AdminLayout title={id === 'new' ? 'New Project' : 'Edit Project'}>
+    <ProjectEditor client:only="react" projectId={id} />
+</AdminLayout>

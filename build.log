@@ -1,0 +1,48 @@
+[2m16:02:34[22m [34m[@astrojs/node][39m Enabling sessions with filesystem storage
+[2m16:02:34[22m [34m[content][39m Syncing content
+[2m16:02:34[22m [34m[content][39m Synced content
+[2m16:02:34[22m [34m[types][39m Generated [2m74ms[22m
+[2m16:02:34[22m [34m[build][39m output: [34m"static"[39m
+[2m16:02:34[22m [34m[build][39m mode: [34m"server"[39m
+[2m16:02:34[22m [34m[build][39m directory: [34mE:\WEB D\Viraj\ProjectShowcase\dist\[39m
+[2m16:02:34[22m [34m[build][39m adapter: [32m@astrojs/node[39m
+[2m16:02:34[22m [34m[build][39m Collecting build info...
+[2m16:02:34[22m [34m[build][39m [32m✓ Completed in 243ms.[39m
+[2m16:02:34[22m [34m[build][39m Building server entrypoints...
+[2m16:02:36[22m [34m[vite][39m [32m✓ built in 2.48s[39m
+[2m16:02:36[22m [34m[build][39m [32m✓ Completed in 2.53s.[39m
+
+[42m[30m building client (vite) [39m[49m
+[2m16:02:36[22m [34m[vite][39m transforming...
+[2m16:02:40[22m [34m[vite][39m [32m✓[39m 1608 modules transformed.
+[2m16:02:40[22m [34m[vite][39m rendering chunks...
+[2m16:02:40[22m [34m[vite][39m computing gzip size...
+[2m16:02:40[22m [34m[vite][39m [2mdist/client/[22m[36m_astro/createLucideIcon.Ccon4vdJ.js  [39m[1m[2m  1.58 kB[22m[1m[22m[2m │ gzip:  0.66 kB[22m
+[2m16:02:40[22m [34m[vite][39m [2mdist/client/[22m[36m_astro/LoginForm.CCAjxsXM.js         [39m[1m[2m  1.73 kB[22m[1m[22m[2m │ gzip:  0.82 kB[22m
+[2m16:02:40[22m [34m[vite][39m [2mdist/client/[22m[36m_astro/client.CTzL1C66.js            [39m[1m[2m  1.87 kB[22m[1m[22m[2m │ gzip:  0.93 kB[22m
+[2m16:02:40[22m [34m[vite][39m [2mdist/client/[22m[36m_astro/Dashboard.BSWdubQh.js         [39m[1m[2m  2.42 kB[22m[1m[22m[2m │ gzip:  1.03 kB[22m
+[2m16:02:40[22m [34m[vite][39m [2mdist/client/[22m[36m_astro/ProjectEditor.pUMulA12.js     [39m[1m[2m  4.31 kB[22m[1m[22m[2m │ gzip:  1.71 kB[22m
+[2m16:02:40[22m [34m[vite][39m [2mdist/client/[22m[36m_astro/index.BZ7XLWeh.js             [39m[1m[2m  7.33 kB[22m[1m[22m[2m │ gzip:  2.96 kB[22m
+[2m16:02:40[22m [34m[vite][39m [2mdist/client/[22m[36m_astro/card.C56Dg3cN.js              [39m[1m[2m 62.90 kB[22m[1m[22m[2m │ gzip: 19.33 kB[22m
+[2m16:02:40[22m [34m[vite][39m [2mdist/client/[22m[36m_astro/label.BmPIxbhW.js             [39m[1m[2m 79.31 kB[22m[1m[22m[2m │ gzip: 22.01 kB[22m
+[2m16:02:40[22m [34m[vite][39m [2mdist/client/[22m[36m_astro/index.BG_gPxKm.js             [39m[1m[2m134.65 kB[22m[1m[22m[2m │ gzip: 43.22 kB[22m
+[2m16:02:40[22m [34m[vite][39m [32m✓ built in 3.19s[39m
+
+[42m[30m prerendering static routes [39m[49m
+[2m16:02:40[22m [32m▶[39m src/pages/admin/dashboard.astro
+[2m16:02:40[22m   [34m└─[39m [2m/admin/dashboard/index.html[22m [2m(+15ms)[22m 
+[2m16:02:40[22m [32m▶[39m src/pages/admin/login.astro
+[2m16:02:40[22m   [34m└─[39m [2m/admin/login/index.html[22m [2m(+20ms)[22m 
+[2m16:02:40[22m [32m▶[39m src/pages/projects/[slug].astro
+16:02:40 [ERROR] [build] Failed to call getStaticPaths for src/pages/projects/[slug].astro
+Only admins can perform this action.
+  Location:
+    E:\WEB D\Viraj\ProjectShowcase\node_modules\pocketbase\dist\pocketbase.es.mjs:1:37137
+  Stack trace:
+    at file:///E:/WEB%20D/Viraj/ProjectShowcase/node_modules/pocketbase/dist/pocketbase.es.mjs:1:37137
+    at async Module.getStaticPaths (file:///E:/WEB%20D/Viraj/ProjectShowcase/dist/server/pages/projects/_slug_.astro.mjs?time=1764844360249:11:20)
+    at async getPathsForRoute (file:///E:/WEB%20D/Viraj/ProjectShowcase/node_modules/astro/dist/core/build/generate.js:213:25)
+    at async generatePages (file:///E:/WEB%20D/Viraj/ProjectShowcase/node_modules/astro/dist/core/build/generate.js:93:9)
+    at async AstroBuilder.build (file:///E:/WEB%20D/Viraj/ProjectShowcase/node_modules/astro/dist/core/build/index.js:157:5)
+  Caused by:
+  {"url":"http://127.0.0.1:8090/api/collections/projects/records?page=1&perPage=500&skipTotal=1&filter=status%20%3D%20%22published%22","status":403,"data":{"code":403,"message":"Only admins can perform this action.","data":{}}}

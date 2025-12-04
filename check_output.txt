@@ -1,0 +1,120 @@
+[2m16:47:43[22m [34m[@astrojs/node][39m Enabling sessions with filesystem storage
+[2m16:47:44[22m [34m[content][39m Syncing content
+[2m16:47:44[22m [34m[content][39m Synced content
+[2m16:47:44[22m [34m[types][39m Generated [2m169ms[22m
+[2m16:47:44[22m [34m[check][39m Getting diagnostics for Astro files in E:\WEB D\Viraj\ProjectShowcase...
+[96msrc/components/admin/LoginForm.tsx[0m:[93m30[0m:[93m22[0m - [93mwarning[0m[90m ts(6385): [0m'admins' is deprecated.
+
+[7m30[0m             await pb.admins.authWithPassword(data.email, data.password);
+[7m  [0m [93m                     ~~~~~~[0m
+[96msrc/components/admin/LoginForm.tsx[0m:[93m8[0m:[93m46[0m - [93mwarning[0m[90m ts(6133): [0m'CardFooter' is declared but its value is never read.
+
+[7m8[0m import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+[7m [0m [93m                                             ~~~~~~~~~~[0m
+
+[96msrc/components/admin/ProjectEditor.tsx[0m:[93m145[0m:[93m46[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(record: { [key: string]: any; }, filename: string, queryParams?: FileOptions | undefined): string' of 'pb.files.getUrl' is deprecated.
+
+[7m145[0m                     const fileUrl = pb.files.getUrl(record, record.file);
+[7m   [0m [93m                                             ~~~~~~[0m
+[96msrc/components/admin/ProjectEditor.tsx[0m:[93m18[0m:[93m5[0m - [93mwarning[0m[90m ts(6133): [0m'DragOverlay' is declared but its value is never read.
+
+[7m18[0m     DragOverlay,
+[7m  [0m [93m    ~~~~~~~~~~~[0m
+[96msrc/components/admin/ProjectEditor.tsx[0m:[93m10[0m:[93m27[0m - [93mwarning[0m[90m ts(6133): [0m'Plus' is declared but its value is never read.
+
+[7m10[0m import { ArrowLeft, Save, Plus, Type, Image as ImageIcon, AlignLeft, Video, Code } from 'lucide-react';
+[7m  [0m [93m                          ~~~~[0m
+
+[96msrc/components/admin/blocks/BlockWrapper.tsx[0m:[93m5[0m:[93m16[0m - [93mwarning[0m[90m ts(6133): [0m'CardContent' is declared but its value is never read.
+
+[7m5[0m import { Card, CardContent } from '@/components/ui/card';
+[7m [0m [93m               ~~~~~~~~~~~[0m
+
+[96msrc/components/ui/label.tsx[0m:[93m12[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'ElementRef' is deprecated.
+
+[7m12[0m     React.ElementRef<typeof LabelPrimitive.Root>,
+[7m  [0m [93m          ~~~~~~~~~~[0m
+
+[96msrc/components/ui/select.tsx[0m:[93m136[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'ElementRef' is deprecated.
+
+[7m136[0m     React.ElementRef<typeof SelectPrimitive.Separator>,
+[7m   [0m [93m          ~~~~~~~~~~[0m
+[96msrc/components/ui/select.tsx[0m:[93m113[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'ElementRef' is deprecated.
+
+[7m113[0m     React.ElementRef<typeof SelectPrimitive.Item>,
+[7m   [0m [93m          ~~~~~~~~~~[0m
+[96msrc/components/ui/select.tsx[0m:[93m101[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'ElementRef' is deprecated.
+
+[7m101[0m     React.ElementRef<typeof SelectPrimitive.Label>,
+[7m   [0m [93m          ~~~~~~~~~~[0m
+[96msrc/components/ui/select.tsx[0m:[93m69[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'ElementRef' is deprecated.
+
+[7m69[0m     React.ElementRef<typeof SelectPrimitive.Content>,
+[7m  [0m [93m          ~~~~~~~~~~[0m
+[96msrc/components/ui/select.tsx[0m:[93m51[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'ElementRef' is deprecated.
+
+[7m51[0m     React.ElementRef<typeof SelectPrimitive.ScrollDownButton>,
+[7m  [0m [93m          ~~~~~~~~~~[0m
+[96msrc/components/ui/select.tsx[0m:[93m34[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'ElementRef' is deprecated.
+
+[7m34[0m     React.ElementRef<typeof SelectPrimitive.ScrollUpButton>,
+[7m  [0m [93m          ~~~~~~~~~~[0m
+[96msrc/components/ui/select.tsx[0m:[93m14[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'ElementRef' is deprecated.
+
+[7m14[0m     React.ElementRef<typeof SelectPrimitive.Trigger>,
+[7m  [0m [93m          ~~~~~~~~~~[0m
+
+[96msrc/components/ui/toggle.tsx[0m:[93m30[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'ElementRef' is deprecated.
+
+[7m30[0m     React.ElementRef<typeof TogglePrimitive.Root>,
+[7m  [0m [93m          ~~~~~~~~~~[0m
+
+[96msrc/lib/pocketbase.ts[0m:[93m7[0m:[93m49[0m - [93mwarning[0m[90m ts(6385): [0m'isAdmin' is deprecated.
+
+[7m7[0m     return pb.authStore.isValid && pb.authStore.isAdmin;
+[7m [0m [93m                                                ~~~~~~~[0m
+
+[96msrc/pages/index.astro[0m:[93m32[0m:[93m14[0m - [91merror[0m[90m ts(7005): [0mVariable 'projects' implicitly has an 'any[]' type.
+
+[7m32[0m             {projects.map((project) => (
+[7m  [0m [91m             ~~~~~~~~[0m
+[96msrc/pages/index.astro[0m:[93m8[0m:[93m5[0m - [91merror[0m[90m ts(7034): [0mVariable 'projects' implicitly has type 'any[]' in some locations where its type cannot be determined.
+
+[7m8[0m let projects = [];
+[7m [0m [91m    ~~~~~~~~[0m
+[96msrc/pages/index.astro[0m:[93m37[0m:[93m47[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(record: { [key: string]: any; }, filename: string, queryParams?: FileOptions | undefined): string' of 'pb.files.getUrl' is deprecated.
+
+[7m37[0m                                 src={pb.files.getUrl(project, project.featured_image)}
+[7m  [0m [93m                                              ~~~~~~[0m
+[96msrc/pages/index.astro[0m:[93m4[0m:[93m16[0m - [93mwarning[0m[90m ts(6133): [0m'CardContent' is declared but its value is never read.
+
+[7m4[0m import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+[7m [0m [93m               ~~~~~~~~~~~[0m
+
+[96msrc/pages/admin/dashboard.astro[0m:[93m3[0m:[93m8[0m - [91merror[0m[90m ts(2440): [0mImport declaration conflicts with local declaration of 'Dashboard'.
+
+[7m3[0m import Dashboard from '../../components/admin/Dashboard';
+[7m [0m [91m       ~~~~~~~~~[0m
+
+[96msrc/pages/projects/[slug].astro[0m:[93m113[0m:[93m34[0m - [93mwarning[0m[90m ts(6385): [0m'Github' is deprecated.
+
+[7m113[0m                                 <Github className="mr-2 h-4 w-4" /> GitHub (N/A)
+[7m   [0m [93m                                 ~~~~~~[0m
+[96msrc/pages/projects/[slug].astro[0m:[93m50[0m:[93m35[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(record: { [key: string]: any; }, filename: string, queryParams?: FileOptions | undefined): string' of 'pb.files.getUrl' is deprecated.
+
+[7m50[0m                     src={pb.files.getUrl(project, project.featured_image)}
+[7m  [0m [93m                                  ~~~~~~[0m
+[96msrc/pages/projects/[slug].astro[0m:[93m6[0m:[93m25[0m - [93mwarning[0m[90m ts(6385): [0m'Github' is deprecated.
+
+[7m6[0m import { Calendar, Eye, Github, Globe } from 'lucide-react';
+[7m [0m [93m                        ~~~~~~[0m
+[96msrc/pages/projects/[slug].astro[0m:[93m5[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'Badge' is declared but its value is never read.
+
+[7m5[0m import { Badge } from '@/components/ui/badge'; // Need to create Badge
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+Result (36 files): 
+- 3 errors
+- 0 warnings
+- 22 hints
+
