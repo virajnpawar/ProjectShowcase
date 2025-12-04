@@ -92,4 +92,3 @@ project-showcase/
 | `npm run preview` | Preview your build locally |
 | `npm run check` | Run Astro check for type errors |
 
-## S3NKU
