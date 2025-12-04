@@ -1,60 +1,97 @@
-# Astro Starter Kit: Basics
+# Project Showcase Platform
 
-```sh
-npm create astro@latest -- --template basics
-```
+A dynamic portfolio website and project showcase platform featuring a robust admin interface and a high-performance public frontend. Built with **Astro**, **React**, and **PocketBase**.
 
-<!-- ASTRO:REMOVE:START -->
+## 🚀 Features
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+- **Admin Dashboard**: Comprehensive interface to manage projects, view statistics, and handle content.
+- **Drag-and-Drop Editor**: Flexible block-based editor using `@dnd-kit` to create custom layouts for project pages.
+  - Support for Text, Headings, Images, Videos, and Embeds.
+- **Public Showcase**: Fast, responsive, and SEO-friendly project listing and detail pages generated with Astro.
+- **Authentication**: Secure admin login and session management via PocketBase.
+- **Modern UI**: Polished interface built with **shadcn/ui** and **Tailwind CSS**.
 
-<!-- ASTRO:REMOVE:END -->
+## 🛠️ Tech Stack
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- **Frontend Framework**: [Astro](https://astro.build/) (Static Site Generation with Islands Architecture)
+- **UI Library**: [React](https://react.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Components**: [shadcn/ui](https://ui.shadcn.com/)
+- **Backend**: [PocketBase](https://pocketbase.io/) (SQLite-based backend)
+- **State & Logic**:
+  - `react-hook-form` & `zod` for form handling
+  - `@dnd-kit` for drag-and-drop interactions
+  - `lucide-react` for icons
 
-<!-- ASTRO:REMOVE:START -->
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-<!-- ASTRO:REMOVE:END -->
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## � Project Structure
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
+project-showcase/
+├── src/
+│   ├── components/
+│   │   ├── admin/          # Admin dashboard and editor components
+│   │   ├── public/         # Public facing components (ProjectCard, etc.)
+│   │   └── ui/             # shadcn/ui reusable components
+│   ├── layouts/            # Astro layouts (Admin, Public, Base)
+│   ├── pages/              # File-based routing
+│   │   ├── index.astro     # Home page
+│   │   ├── projects/       # Project listing and details
+│   │   └── admin/          # Admin routes
+│   ├── lib/                # Utilities and PocketBase client
+│   └── styles/             # Global styles
+├── public/                 # Static assets
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🏁 Getting Started
+
+### Prerequisites
+
+- **Node.js** (v18 or higher)
+- **PocketBase** instance (running locally or hosted)
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone <repository-url>
+   cd project-showcase
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Configure Environment Variables:**
+   Create a `.env` file in the root directory with the following variables:
+   ```env
+   PUBLIC_POCKETBASE_URL=http://127.0.0.1:8090  # Or your hosted PocketBase URL
+   POCKETBASE_ADMIN_EMAIL=admin@example.com
+   POCKETBASE_ADMIN_PASSWORD=your-secure-password
+   ```
+
+4. **Start the Development Server:**
+   ```bash
+   npm run dev
+   ```
+   The site will be available at `http://localhost:4321`.
+
+### Backend Setup (PocketBase)
+
+1. Download and run PocketBase.
+2. Create the necessary collections (`projects`, `categories`, `tags`, etc.) as defined in the project requirements.
+3. Ensure the Admin user is created.
 
 ## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
+| Command | Action |
+| :--- | :--- |
+| `npm run dev` | Starts local dev server at `localhost:4321` |
+| `npm run build` | Build your production site to `./dist/` |
+| `npm run preview` | Preview your build locally |
+| `npm run check` | Run Astro check for type errors |
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## � License
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+[MIT](LICENSE)
