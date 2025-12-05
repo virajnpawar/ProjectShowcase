@@ -43,7 +43,7 @@ export default function Dashboard() {
                 <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
                 <div className="flex items-center gap-2">
                     <Button onClick={handleLogout} variant="outline">Logout</Button>
-                    <Button onClick={() => window.location.href = '/admin/editor/new'}>
+                    <Button onClick={() => window.location.href = '/admin/editor?id=new'}>
                         <Plus className="mr-2 h-4 w-4" /> New Project
                     </Button>
                 </div>
@@ -75,7 +75,7 @@ export default function Dashboard() {
                                         <p className="text-sm text-muted-foreground">{project.status}</p>
                                     </div>
                                     <div className="flex gap-2">
-                                        <Button variant="ghost" size="sm" onClick={() => window.location.href = `/admin/editor/${project.id}`}>Edit</Button>
+                                        <Button variant="ghost" size="sm" onClick={() => window.location.href = `/admin/editor?id=${project.id}`}>Edit</Button>
                                     </div>
                                 </div>
                             ))}

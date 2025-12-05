@@ -5,9 +5,7 @@ import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
-
+  site: 'https://virajnpawar.github.io',
+  base: '/ProjectShowcase',
   integrations: [react(), tailwind()],
-  adapter: node({
-    mode: 'standalone'
-  })
 });

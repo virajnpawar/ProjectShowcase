@@ -44,7 +44,17 @@ interface ProjectEditorProps {
     projectId?: string;
 }
 
-export default function ProjectEditor({ projectId }: ProjectEditorProps) {
+export default function ProjectEditor({ projectId: propProjectId }: ProjectEditorProps) {
+    const [projectId, setProjectId] = useState<string | undefined>(propProjectId);
+
+    useEffect(() => {
+        if (!propProjectId) {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            if (id) setProjectId(id);
+        }
+    }, [propProjectId]);
+
     const isNew = projectId === 'new';
     const [loading, setLoading] = useState(!isNew);
     const [saving, setSaving] = useState(false);
@@ -162,7 +172,7 @@ export default function ProjectEditor({ projectId }: ProjectEditorProps) {
 
             if (isNew) {
                 const record = await pb.collection('projects').create(projectData);
-                window.location.href = `/admin/editor/${record.id}`;
+                window.location.href = `/admin/editor?id=${record.id}`;
             } else if (projectId) {
                 await pb.collection('projects').update(projectId, projectData);
                 setBlocks(processedBlocks); // Update state with processed blocks (URLs instead of Files)
