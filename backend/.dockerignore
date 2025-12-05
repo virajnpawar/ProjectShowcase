@@ -1,0 +1,5 @@
+pb_data
+pocketbase.exe
+.git
+.gitignore
+node_modules
