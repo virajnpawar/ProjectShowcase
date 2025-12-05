@@ -1,15 +1,22 @@
 ---
-import PublicLayout from '../layouts/PublicLayout.astro';
-import { pb } from '../lib/pocketbase';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import PublicLayout from "../layouts/PublicLayout.astro";
+import { pb } from "../lib/pocketbase";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 // Fetch published projects
 let projects: any[] = [];
 try {
-    projects = await pb.collection('projects').getFullList({
-        filter: 'status = "published"',
-        sort: '-created',
+    projects = await pb.collection("projects").getFullList({
+        // filter: 'status = "published"',
+        sort: "-created",
     });
 } catch (e) {
     console.error("Error fetching projects:", e);
@@ -19,7 +26,9 @@ try {
 <PublicLayout title="Project Showcase">
     <section class="container grid items-center gap-6 pb-8 pt-6 md:py-10">
         <div class="flex max-w-[980px] flex-col items-start gap-2">
-            <h1 class="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
+            <h1
+                class="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl"
+            >
                 Project Showcase <br class="hidden sm:inline" />
                 Discover amazing work.
             </h1>
@@ -27,33 +36,52 @@ try {
                 A collection of projects demonstrating skills and creativity.
             </p>
         </div>
-        
+
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project) => (
-                <Card key={project.id} className="flex flex-col overflow-hidden">
-                    {project.featured_image && (
-                        <div class="aspect-video w-full overflow-hidden">
-                            <img 
-                                src={pb.files.getUrl(project, project.featured_image)} 
-                                alt={project.title}
-                                class="h-full w-full object-cover transition-transform hover:scale-105"
-                            />
-                        </div>
-                    )}
-                    <CardHeader>
-                        <CardTitle className="line-clamp-1">{project.title}</CardTitle>
-                        <CardDescription className="line-clamp-2">{project.excerpt}</CardDescription>
-                    </CardHeader>
-                    <CardFooter className="mt-auto">
-                        <a href={`/projects/${project.slug}`} class="w-full">
-                            <Button className="w-full">View Project</Button>
-                        </a>
-                    </CardFooter>
-                </Card>
-            ))}
-            {projects.length === 0 && (
-                <p class="col-span-full text-center text-muted-foreground">No projects found.</p>
-            )}
+            {
+                projects.map((project) => (
+                    <Card
+                        key={project.id}
+                        className="flex flex-col overflow-hidden"
+                    >
+                        {project.featured_image && (
+                            <div class="aspect-video w-full overflow-hidden">
+                                <img
+                                    src={pb.files.getUrl(
+                                        project,
+                                        project.featured_image,
+                                    )}
+                                    alt={project.title}
+                                    class="h-full w-full object-cover transition-transform hover:scale-105"
+                                />
+                            </div>
+                        )}
+                        <CardHeader>
+                            <CardTitle className="line-clamp-1">
+                                {project.title}
+                            </CardTitle>
+                            <CardDescription className="line-clamp-2">
+                                {project.excerpt}
+                            </CardDescription>
+                        </CardHeader>
+                        <CardFooter className="mt-auto">
+                            <a
+                                href={`/projects/${project.slug}`}
+                                class="w-full"
+                            >
+                                <Button className="w-full">View Project</Button>
+                            </a>
+                        </CardFooter>
+                    </Card>
+                ))
+            }
+            {
+                projects.length === 0 && (
+                    <p class="col-span-full text-center text-muted-foreground">
+                        No projects found.
+                    </p>
+                )
+            }
         </div>
     </section>
 </PublicLayout>

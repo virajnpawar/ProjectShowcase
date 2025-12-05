@@ -28,7 +28,9 @@ export default function LoginForm() {
         setError(null);
         try {
             await pb.admins.authWithPassword(data.email, data.password);
-            window.location.href = '/admin/dashboard';
+            // Handle base path for GitHub Pages
+            const basePath = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+            window.location.href = `${basePath}/admin/dashboard`;
         } catch (err: any) {
             console.error("Login error:", err);
             setError(err.message || "Invalid email or password");
