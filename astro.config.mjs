@@ -6,6 +6,6 @@ import node from '@astrojs/node';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://virajnpawar.github.io',
-  base: '/ProjectShowcase',
+  base: process.env.NODE_ENV === 'production' ? '/ProjectShowcase' : '/',
   integrations: [react(), tailwind()],
 });
